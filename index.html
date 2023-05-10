@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jodo da tabuada</title>
+    <style>
+        body{
+            text-align: center;
+        }
+
+        button{
+            margin-top: 30px;
+            height: 48px;
+            width: 150px;
+            border-radius: 100px;
+            font-size: 14px;
+            border: none;
+            background-image: linear-gradient(to right top, #c276c2, #bc60c9, #b249d3, #a331de, #8c12eb);
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body><button onClick="window.location.reload();">Jogar Novamente</button>
+    <script>
+        window.onload = function (e) {
+
+            //Criando a variavel para armazenar o numero da tabuada que será estudada.
+            var tabuada = prompt("Escolha um número de 1 a 10")
+
+            //Criando uma variável para somar quantos pontos o usuário irá acertar
+            var acertos = 0
+
+            //Criando uma variável para somar quantos pontos o usuário irá errar
+            var erros = 0
+
+            if (tabuada != null && tabuada != '') {
+
+                //Criando uma estrutura de repetição para rodar todo o escopo interno 10 vezes, o que irá
+                //criar a tabuada dinâmica, baseada no numero informado pelo usuário, perguntando o numero x 1,2,3...10
+                for (var contador = 1; contador <= 10; contador++) {
+
+                    //Criando uma variavel para armazenar a resposta do usuário em relação a pergunta (quanto é 1 x numero)
+                    var respostas = prompt(`Quanto é ${tabuada} x ${contador}`)
+
+                    //Criando uma variavel para armazenar o valor correto do calculo
+                    var resultado = contador * tabuada
+
+                    //Validação se a resposta do usuário é igual ao resultado correto.
+                    if (respostas == resultado) {
+
+                        //Se sim, nós contamos um acerto a mais
+                        acertos = acertos + 1
+                    } else {
+
+                        //Se não, contamos um erro a mais.
+                        erros = erros + 1
+                    }
+
+                }
+                //Informando para o usuário quantos acertos ele teve
+                alert(`Você acertou ${acertos}`)
+
+                //Informando para o usuário quantos erros ele teve
+                alert(`Você errou ${erros}`)
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>
